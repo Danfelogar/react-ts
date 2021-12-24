@@ -1,13 +1,17 @@
 import { useState } from "react";
-
-export const Usuario = () => {
-
     interface User {
         uid: string;
         name: string;
     }
 
-    const [user, setUser] = useState<User>();
+    const tempUser: User ={
+        uid: 'XYZ123',
+        name: 'petro'
+    }
+
+export const Usuario = () => {
+
+    const [user, setUser] = useState<User>(tempUser);
 
     const login = () =>{
         setUser({
@@ -27,8 +31,8 @@ export const Usuario = () => {
             </button>
             {
                 (!user)
-                ? <pre> No hay usuario </pre>
-                : <pre> { JSON.stringify( user ) } </pre>
+                    ? <pre> No hay usuario </pre>
+                    : <pre> { JSON.stringify( user ) } </pre>
             }
         </div>
     )
